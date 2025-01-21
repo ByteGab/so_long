@@ -3,11 +3,10 @@
 
 int close_window(int keycode, void *param)
 {
-    // Cuando se presiona una tecla (por ejemplo ESC o el botón de cierre), se termina el programa
-    if (keycode == 53)  // 65307 es el código para la tecla ESC
+    if (keycode == 65307)
     {
         mlx_destroy_window(param, param);
-        exit(0);  // Salir del programa
+        exit(0);
     }
     return (0);
 }
@@ -19,8 +18,8 @@ int main(void)
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, 1920, 1080, "Paparoni esto es easy");
 
-    // Usamos mlx_pixel_put para dibujar un píxel en la ventana directamente
     mlx_pixel_put(mlx, mlx_win, 20, 20, 0x00FF0000);
+    mlx_key_hook(mlx_win, close_window, mlx_win); 
 
     mlx_loop(mlx);
 
