@@ -21,7 +21,7 @@ int main(void)
 	int		img_height;
 
     mlx = mlx_init();
-    mlx_win = mlx_new_window(mlx, 800, 800, "Paparoni esto es easy");
+    mlx_win = mlx_new_window(mlx, 928, 793, "Paparoni esto es easy");
     img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
     mlx_put_image_to_window(mlx, mlx_win, img, 0, 0);
     mlx_key_hook(mlx_win, close_window, mlx_win); 
