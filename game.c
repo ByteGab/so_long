@@ -84,6 +84,6 @@ int main(void)
     mlx_key_hook(mlx_win, close_window, mlx_win); 
     // finish loop
     mlx_loop(mlx);
-
+    //  cc game.c libmlx_Linux.a -lX11 -lXext -o game 
     return (0);
 }
