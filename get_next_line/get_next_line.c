@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:08 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/01 17:17:23 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:41:35 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,18 +113,18 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int main(void)
-{
-	int	fd;
-	char	*line;
+// int main(void)
+// {
+// 	int	fd;
+// 	char	*line;
 	
-	fd = open("primer_mapa.ber", O_RDONLY);
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-}
+// 	fd = open("primer_mapa.ber", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	while (line != NULL)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// }
