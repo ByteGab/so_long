@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:11 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/01 19:00:39 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:34:00 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char	*ft_strchr(char *s, int c)
 	{
 		if (s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
+		if (s[i] == '1')
+			printf("%i",i);
 		i++;
 	}
 	if ((unsigned char)c == '\0')
