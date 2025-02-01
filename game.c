@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/01 19:19:39 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:13:27 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
     void	*background_img;
     void	*img2;
 	char	*relative_path_background = "assets/Background.xpm";
-    char	*relative_path2 = "assets/platforms.xpm";
+    char	*relative_path2 = "assets/4b.xpm";
 	int		img_width;
 	int		img_height;
     int		img_width2;
