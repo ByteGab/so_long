@@ -6,18 +6,14 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/02 15:20:08 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:48:30 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "so_long.h"
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
 
-int	key_hook(int keycode, t_vars *vars)
+int	loop_hook(int keycode, t_vars *vars)
 {
     if (keycode == 65307)
     {
@@ -48,13 +44,13 @@ int	key_hook(int keycode, t_vars *vars)
     return (0);
 }
 
-int	main(void)
-{
-	t_vars	vars;
+// int	main(void)
+// {
+// 	t_vars	vars;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
+// 	vars.mlx = mlx_init();
+// 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+// 	mlx_key_hook(vars.win, loop_hook, &vars);
 
-	mlx_loop(vars.mlx);
-}
+// 	mlx_loop(vars.mlx);
+// }
