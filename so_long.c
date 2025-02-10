@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/10 13:48:19 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:32:39 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ int	main(int argc, char *argv[])
 				relative_path_background, &img_width, &img_height);
 		mlx_put_image_to_window(vars.mlx, vars.win, background_img, 0, 0);
 		printf("Created Background\n");
-		// loo_hook
-		mlx_key_hook(vars.win, loop_hook, &vars);
-		mlx_loop(vars.mlx);
 		// walls
 		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
 				&img_height2);
@@ -60,6 +57,9 @@ int	main(int argc, char *argv[])
 			i--;
 		}
 		printf("Created walls\n");
+		// loop_hook
+		mlx_key_hook(vars.win, loop_hook, &vars);
+		mlx_loop(vars.mlx);
 		// close window
 		mlx_key_hook(vars.win, close_window, vars.win);
 
