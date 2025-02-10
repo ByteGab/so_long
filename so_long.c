@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/10 14:32:39 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:50:47 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ int	main(int argc, char *argv[])
 	i = 60;
 
 	if (argc == 1)
-		printf("Error añada un mapa\n");
+		printf("Error añade un mapa\n");
 	else
 	{
+		vars.walls = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
+				&img_height2);
 		// read_map
-		read_map(argv[1]);
+		read_map(argv[1], &vars);
 		// key handler
 
 		vars.mlx = mlx_init();
@@ -48,20 +50,18 @@ int	main(int argc, char *argv[])
 		mlx_put_image_to_window(vars.mlx, vars.win, background_img, 0, 0);
 		printf("Created Background\n");
 		// walls
-		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
-				&img_height2);
-		mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
-		while (i > 0)
-		{
-			mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 16), 1);
-			i--;
-		}
+		// img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
+		// 		&img_height2);
+		// mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
+		// while (i > 0)
+		// {
+		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 16), 1);
+		// 	i--;
+		// }
 		printf("Created walls\n");
-		// loop_hook
+		// loop_hook && close window
 		mlx_key_hook(vars.win, loop_hook, &vars);
 		mlx_loop(vars.mlx);
-		// close window
-		mlx_key_hook(vars.win, close_window, vars.win);
 
 		// finish loop
 		mlx_loop(vars.mlx);
