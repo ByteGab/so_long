@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:11 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/02 16:29:50 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:44:26 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,16 @@ size_t	ft_strlen(char *s)
 char	*ft_strchr(char *s, int c)
 {
 	int	i;
-	int	walls;
-	int	background;
 
 	i = 0;
-	walls = 0;
 	if (!s)
 		return (NULL);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
-		if (s[i] == '1')
-			walls++;
-		else if (s[i] == '0')
-			background++;
 		i++;
 	}
-	printf("%d \n",walls);
 	if ((unsigned char)c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);
