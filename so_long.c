@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/10 15:50:47 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:46:09 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char *argv[])
 	t_vars vars;
 	// img
 	void *background_img;
+	void *wall;
 	void *img2;
 	char *relative_path_background = "assets/Background.xpm";
 	char *relative_path2 = "assets/4b.xpm";
@@ -33,31 +34,37 @@ int	main(int argc, char *argv[])
 		printf("Error añade un mapa\n");
 	else
 	{
-		vars.walls = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
-				&img_height2);
-		// read_map
-		read_map(argv[1], &vars);
 		// key handler
 
 		vars.mlx = mlx_init();
+		// read_map
+		
 		vars.win = mlx_new_window(vars.mlx, 928, 793, "Paparoni esto es easy");
 		// open window
 		printf("Created Window\n");
-		// show images
+		// show images		
 		// background
 		background_img = mlx_xpm_file_to_image(vars.mlx,
 				relative_path_background, &img_width, &img_height);
 		mlx_put_image_to_window(vars.mlx, vars.win, background_img, 0, 0);
 		printf("Created Background\n");
 		// walls
-		// img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
-		// 		&img_height2);
-		// mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
-		// while (i > 0)
-		// {
-		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 16), 1);
-		// 	i--;
-		// }
+		wall = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,&img_height2);
+		if (wall == NULL)
+		{
+			printf("Imagen vacia");
+		}
+		vars.walls = wall;
+		read_map(argv[1], &vars);
+		// mlx_put_image_to_window(vars.mlx, vars.win, vars.walls, 1, 1);
+		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
+				&img_height2);
+		mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
+		while (i > 0)
+		{
+			mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 19), 1);
+			i--;
+		}
 		printf("Created walls\n");
 		// loop_hook && close window
 		mlx_key_hook(vars.win, loop_hook, &vars);
