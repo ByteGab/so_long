@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/11 13:48:54 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:59:42 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# ifndef SIZE_X
+#  define SIZE_X 1024
+# endif
+# ifndef SIZE_Y
+#	define SIZE_Y 900
+# endif
 typedef struct s_vars
 {
 	void	*mlx;

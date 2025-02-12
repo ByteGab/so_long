@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/11 13:46:09 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:05:38 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 		vars.mlx = mlx_init();
 		// read_map
 		
-		vars.win = mlx_new_window(vars.mlx, 928, 793, "Paparoni esto es easy");
+		vars.win = mlx_new_window(vars.mlx, SIZE_X, SIZE_Y, "Paparoni esto es easy");
 		// open window
 		printf("Created Window\n");
 		// show images		
@@ -60,11 +60,25 @@ int	main(int argc, char *argv[])
 		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
 				&img_height2);
 		mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
-		while (i > 0)
+		// print manual walls
+		i = 0;
+		while (i < SIZE_X && i < SIZE_Y)
 		{
-			mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 19), 1);
-			i--;
+			mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 16), 1);
+			mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, (i * 16));
+			mlx_put_image_to_window(vars.mlx, vars.win, img2, (i * 16), SIZE_Y - 16);
+			mlx_put_image_to_window(vars.mlx, vars.win, img2, SIZE_X - 16, (i * 16));
+			i++;
 		}
+		z = 0;
+		// while (z < SIZE_X && z < SIZE_Y)
+		// {
+		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (z * 16), 2);
+		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, 2, (z * 16));
+		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (z * 16), SIZE_Y - 16);
+		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, SIZE_X - 16, (z * 16));
+		// 	z++;
+		// }
 		printf("Created walls\n");
 		// loop_hook && close window
 		mlx_key_hook(vars.win, loop_hook, &vars);
