@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/12 16:59:42 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:03:49 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_vars
 	void	*win;
 	void	*walls;
 	char	*background;
+	void	*player;
+	int		pos_x;
 
 	// // img
 	// void	*img;

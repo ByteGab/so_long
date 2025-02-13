@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 12:42:32 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:08:26 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ int	loop_hook(int keycode, t_vars *vars)
     else if (keycode == 119)
     {
         printf("Key W\n");
-        // vars->player.pos.x += 1;
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, 200);
+        vars->pos_x += 64;
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, 200);
     }
     else if (keycode == 115)
     {
         printf("Key S\n");
-        // vars->player.pos.x -= 1;
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, 200);
+        vars->pos_x -= 64;
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, 200);
     }
     else if (keycode == 97)
     {
