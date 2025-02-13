@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 16:17:12 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:11:46 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_vars
 	void	*player_move;
 	int		pos_x;
 	int		pos_y;
+	// int		flag;
 
 	// // img
 	// void	*img;

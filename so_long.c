@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 16:17:15 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:32:00 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_vars vars;
-	// img
+	// imgs
 	void *background_img;
 	void *wall;
 	void *img2;
@@ -36,15 +36,14 @@ int	main(int argc, char *argv[])
 
 	i = 60;
 
+	// comprobate map
 	if (argc == 1)
 		printf("Error añade un mapa\n");
 	else
 	{
-		// key handler
-
+		// init mlx
 		vars.mlx = mlx_init();
-		// read_map
-		
+		// create window
 		vars.win = mlx_new_window(vars.mlx, SIZE_X, SIZE_Y, "Paparoni esto es easy");
 		// open window
 		printf("Created Window\n");
@@ -61,6 +60,7 @@ int	main(int argc, char *argv[])
 			printf("Imagen vacia");
 		}
 		vars.walls = wall;
+		// read_map
 		read_map(argv[1], &vars);
 		// mlx_put_image_to_window(vars.mlx, vars.win, vars.walls, 1, 1);
 		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
