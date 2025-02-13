@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/10 13:48:30 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:42:32 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int	loop_hook(int keycode, t_vars *vars)
     if (keycode == 65307)
     {
         printf("Close Window\n");
-        mlx_destroy_window(vars, vars);
         exit(0);
+        mlx_destroy_window(vars, vars);
+        
     }
     else if (keycode == 119)
     {
