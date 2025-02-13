@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 14:26:42 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:17:15 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ int	main(int argc, char *argv[])
 	char *relative_path_background = "assets/Background.xpm";
 	char *relative_path2 = "assets/4b_64x64.xpm";
 	char *character1 = "assets/Dino_with_background.xpm";
-	char *character2 = "assets/Dino_with_background.xpm";
+	char *character2 = "assets/DinoMove_with_background.xpm";
 	int img_width;
 	int img_height;
 	int img_width2;
 	int img_height2;
 	int img_width3;
 	int img_height3;
+	int img_width4;
+	int img_height4;
 	int i;
 	int z;
 
@@ -65,9 +67,11 @@ int	main(int argc, char *argv[])
 				&img_height2);
 		vars.player = mlx_xpm_file_to_image(vars.mlx, character1, &img_width3,
 				&img_height3);
+		vars.player_move = mlx_xpm_file_to_image(vars.mlx, character2, &img_width4,
+				&img_height4);
 		mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
 		int x = 0;
-		mlx_put_image_to_window(vars.mlx, vars.win, vars.player, vars.pos_x, 200);
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.player, vars.pos_x, vars.pos_y);
 		// print manual walls
 		i = 0;
 		while (i < SIZE_X && i < SIZE_Y)
