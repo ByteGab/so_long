@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 18:32:00 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:55:08 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int argc, char *argv[])
 		printf("Esto es:%d\n",vars.pos_x);
 		// finish loop
 		mlx_loop(vars.mlx);
-		//  cc game.c libmlx_Linux.a -lX11 -lXext -o game
+		//  cc -D SIZE_X=800 -D SIZE_Y=800 so_long.c read_map.c loop_hook.c close_window.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c libmlx_Linux.a -lX11 -lXext -o game  
 	}
 	return (0);
 }
