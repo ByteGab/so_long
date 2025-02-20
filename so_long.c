@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/20 21:09:50 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:11:10 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	main(int argc, char *argv[])
 		// finish loop
 		mlx_loop(vars.mlx);
 		//  cc -D SIZE_X=800 -D SIZE_Y=800 so_long.c read_map.c loop_hook.c close_window.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c libmlx_Linux.a -lX11 -lXext -o game
-		// prueba  234v234rrfwterfg
+		// prueba
 	}
 	return (0);
 }
