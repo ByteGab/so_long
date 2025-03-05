@@ -1,16 +1,7 @@
 #include "so_long.h"
 
-// el mapa esta cerrado por paredes?
-	// solo puede tener una salida
-	// solo puede tener una posición inicial
-	/*
-	  - debe tener al menos un coleccionable:
-	  	- solo se podra salir cuando esten todo los coleccionables recolectados.
-		- tener un algoritmo para comprobar a principio si se puede salir y otro para cuando se quiera salir.
-	*/
-int check_map(int map)
+int check_map(int map,t_map *map_data)
 {
-    t_map map_data;
     // existe el archivo del mapa?
     if (map != 2)
 	{
@@ -21,12 +12,44 @@ int check_map(int map)
         return (0);
 	}
     // el mapa es rectangular?
-    else if (map_data.rectangular == 1)
+	map_data->check_rectangular = 0;
+    if (map_data->check_rectangular == 1)
     {
         printf("Error el mapa no es rectangular\n");
         return (0);
     }
+	// el mapa esta cerrado por paredes?
+	map_data->check_walls = 0;
+	if (map_data->check_walls == 1)
+	{
+		printf("Error el mapa no esta cerrado por paredes\n");
+        return (0);
+	}
+	// solo puede tener una salida
+	map_data->check_exit = 0;
+	if (map_data->check_exit == 1)
+	{
+		printf("Error el mapa no tiene una salida correcta\n");
+        return (0);
+	}
+	// solo puede tener una posición inicial
+	map_data->check_player = 0;
+	if (map_data->check_player == 1)
+	{
+		printf("Error el mapa no tiene una posición inicial correcta\n");
+        return (0);
+	}
+	/*
+	  - debe tener al menos un coleccionable:
+	  	- solo se podra salir cuando esten todo los coleccionables recolectados.
+		- tener un algoritmo para comprobar a principio si se puede salir y otro para cuando se quiera salir.
+	*/
+	map_data->check_coins = 1;
+	if (map_data->check_coins == 1)
+	{
+		printf("Error el mapa no tiene al menos una coleccionable\n");
+        return (0);
+	}
     else
         return (1);
 }
-// test 9
