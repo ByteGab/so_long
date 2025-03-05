@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 18:32:00 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/05 21:41:56 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_vars vars;
+	t_map map_data;
 	// imgs
 	void *background_img;
 	void *wall;
@@ -36,10 +37,11 @@ int	main(int argc, char *argv[])
 
 	i = 60;
 
+	// read_map
+	read_map(argv[1], &vars);
 	// comprobate map
-	if (argc == 1)
-		printf("Error añade un mapa\n");
-	else
+	map_data.check = check_map(argc);
+	if (map_data.check == 1)
 	{
 		// init mlx
 		vars.mlx = mlx_init();
@@ -57,11 +59,9 @@ int	main(int argc, char *argv[])
 		wall = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,&img_height2);
 		if (wall == NULL)
 		{
-			printf("Imagen vacia");
+			printf("Error imagen vacia");
 		}
 		vars.walls = wall;
-		// read_map
-		read_map(argv[1], &vars);
 		// mlx_put_image_to_window(vars.mlx, vars.win, vars.walls, 1, 1);
 		img2 = mlx_xpm_file_to_image(vars.mlx, relative_path2, &img_width2,
 				&img_height2);
@@ -98,7 +98,7 @@ int	main(int argc, char *argv[])
 		printf("Esto es:%d\n",vars.pos_x);
 		// finish loop
 		mlx_loop(vars.mlx);
-		//  cc game.c libmlx_Linux.a -lX11 -lXext -o game
+		//  cc -D SIZE_X=800 -D SIZE_Y=800 so_long.c read_map.c loop_hook.c close_window.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c check_map.c libmlx_Linux.a -lX11 -lXext -o game
 	}
 	return (0);
 }
