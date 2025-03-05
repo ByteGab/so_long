@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/05 21:41:56 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:38:37 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	main(int argc, char *argv[])
 	int z;
 
 	i = 60;
-
+	
+	// comprobate map
+	map_data.check = check_map(argc,&map_data);
 	// read_map
 	read_map(argv[1], &vars);
-	// comprobate map
-	map_data.check = check_map(argc);
 	if (map_data.check == 1)
 	{
 		// init mlx
