@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/05 21:37:55 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:54:52 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ typedef struct s_vars
 typedef struct s_map
 {
 	int		lines;
-	int		rectangular;
+	int		check_rectangular;
+	int		check_walls;
+	int		check_exit;
+	int		check_player;
+	int		check_coins;
 	int 	check;
 }			t_map;
 
@@ -48,6 +52,6 @@ void		read_map(char *map, t_vars *vars);
 int			loop_hook(int keycode, t_vars *vars);
 int			close_window(int keycode, void *param);
 void		my_mlx_pixel_put(t_vars *data, int x, int y, int color);
-int			check_map(int map);
+int			check_map(int map,t_map *map_data);
 
 #endif
