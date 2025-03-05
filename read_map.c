@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 18:41:44 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/05 21:40:14 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:32:24 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void	read_map(char *map, t_vars *vars)
 	char *line;
 	int columns;
 	char **file_map;
-	t_map map_data;
 
 	fd = open(map, O_RDONLY);
 	line = get_next_line(fd);
 	columns = 0;
-	map_data.rectangular = 1;
 
 	file_map = (char **)malloc(strlen(line) - 1);
 	// malloc para el doble puntero 
