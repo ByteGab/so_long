@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/05 18:41:32 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/05 19:19:14 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ int	main(int argc, char *argv[])
 	  - debe tener al menos un coleccionable:
 	  	- solo se podra salir cuando esten todo los coleccionables recolectados.
 		- tener un algoritmo para comprobar a principio si se puede salir y otro para cuando se quiera salir.
-	*/ 
-	
-	if (argc == 1)
-		printf("Error añade un mapa\n");
+	*/
+	if (argc != 2)
+	{
+		if (argc == 1)
+			printf("Error añade un mapa\n");
+		else
+			printf("Error añade un solo mapa\n");
+	}
 	else
 	{
 		// init mlx
