@@ -29,4 +29,4 @@ int check_map(int map)
     else
         return (1);
 }
-// prueba 2
+// prueba 3
