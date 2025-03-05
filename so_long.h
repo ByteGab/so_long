@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/05 19:10:05 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/05 21:37:55 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define SIZE_X 1024
 # endif
 # ifndef SIZE_Y
-#	define SIZE_Y 900
+#  define SIZE_Y 900
 # endif
 typedef struct s_vars
 {
@@ -35,20 +35,19 @@ typedef struct s_vars
 	void	*player_move;
 	int		pos_x;
 	int		pos_y;
-	// int		flag;
-
-	// // img
-	// void	*img;
-	// char	*addr;
-	// int		bits_per_pixel;
-	// int		line_length;
-	// int		endian;
 }			t_vars;
 
-void read_map(char	*map, t_vars *vars);
+typedef struct s_map
+{
+	int		lines;
+	int		rectangular;
+	int 	check;
+}			t_map;
+
+void		read_map(char *map, t_vars *vars);
 int			loop_hook(int keycode, t_vars *vars);
 int			close_window(int keycode, void *param);
-void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
-int check_map(int map);
+void		my_mlx_pixel_put(t_vars *data, int x, int y, int color);
+int			check_map(int map);
 
 #endif
