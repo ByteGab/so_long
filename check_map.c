@@ -28,9 +28,4 @@ int check_map(int map)
     }
     else
         return (1);
-<<<<<<< HEAD
 }
-=======
-}
-// prueba 5
->>>>>>> a3862cf7c28a4770eb457f9f0ee006a0cf8d7dda
