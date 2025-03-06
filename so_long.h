@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/06 21:52:03 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/07 00:19:07 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,23 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# ifndef SIZE_X
-#  define SIZE_X 1024
-# endif
-# ifndef SIZE_Y
-#  define SIZE_Y 900
-# endif
 typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
 	void	*walls;
-	char	*background;
+	void	*background;
 	void	*player;
+	void	*coins;
+	void	*exit;
 	void	*player_move;
 	int		pos_x;
 	int		pos_y;
+	int		size_x;
+	int		size_y;
+	char    **map;
+    int     rows;
+    int     columns;
 }			t_vars;
 
 typedef struct s_map
@@ -48,17 +49,12 @@ typedef struct s_map
 	int 	check;
 }			t_map;
 
-typedef struct s_data
-{
-	int		y;
-	int		*x;
-	char	**map;
-}			t_data;
-
-void	read_map(char *argv, t_data *data);
+void	read_map(char *argv, t_vars *vars);
 int			loop_hook(int keycode, t_vars *vars);
 int			close_window(int keycode, void *param);
 void		my_mlx_pixel_put(t_vars *data, int x, int y, int color);
-int check_map(int maps,t_map *map_data,char *map,t_data *data);
+int check_map(int maps,t_map *map_data,char *map,t_vars *vars);
+void        print_map(t_vars *vars);
+void        place_textures(t_vars *vars);
 
 #endif
