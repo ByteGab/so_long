@@ -1,16 +1,17 @@
 #include "so_long.h"
 
-int check_map(int map,t_map *map_data)
+int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
 {
     // existe el archivo del mapa?
-    if (map != 2)
+    if (maps != 2)
 	{
-		if (map == 1)
+		if (maps == 1)
 			printf("Error añade un mapa\n");
 		else
 			printf("Error añade un solo mapa\n");
         return (0);
 	}
+	read_map(map, &vars);
     // el mapa es rectangular?
 	map_data->check_rectangular = 0;
     if (map_data->check_rectangular == 1)
@@ -44,12 +45,14 @@ int check_map(int map,t_map *map_data)
 	  	- solo se podra salir cuando esten todo los coleccionables recolectados.
 		- tener un algoritmo para comprobar a principio si se puede salir y otro para cuando se quiera salir.
 	*/
-	map_data->check_coins = 1;
+	map_data->check_coins = 0;
 	if (map_data->check_coins == 1)
 	{
 		printf("Error el mapa no tiene al menos una coleccionable\n");
         return (0);
 	}
     else
+	{
         return (1);
+	}
 }

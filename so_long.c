@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/06 00:38:37 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:18:44 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ int	main(int argc, char *argv[])
 	i = 60;
 	
 	// comprobate map
-	map_data.check = check_map(argc,&map_data);
+	map_data.check = check_map(argc,&map_data,argv[1],&vars);
 	// read_map
-	read_map(argv[1], &vars);
 	if (map_data.check == 1)
 	{
 		// init mlx
@@ -83,14 +82,6 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 		z = 0;
-		// while (z < SIZE_X && z < SIZE_Y)
-		// {
-		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (z * 16), 2);
-		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, 2, (z * 16));
-		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, (z * 16), SIZE_Y - 16);
-		// 	mlx_put_image_to_window(vars.mlx, vars.win, img2, SIZE_X - 16, (z * 16));
-		// 	z++;
-		// }
 		printf("Created walls\n");
 		// loop_hook && close window
 		mlx_key_hook(vars.win, loop_hook, &vars);
