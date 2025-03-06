@@ -12,7 +12,7 @@ int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
         return (0);
 	}
 	// function check file .ber
-	read_map(map, &vars);
+	read_map(map, vars);
 	// function check assets map
     // el mapa es rectangular?
 	map_data->check_rectangular = 0;
