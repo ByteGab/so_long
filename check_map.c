@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-int check_map(int maps,t_map *map_data,char *map,t_data *data)
+int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
 {
     // existe el archivo del mapa?
     if (maps != 2)
@@ -13,7 +13,7 @@ int check_map(int maps,t_map *map_data,char *map,t_data *data)
         return (0);
 	}
 	// function check file .ber
-	read_map(map, &data);
+	read_map(map, vars);
 	// function check assets map
     // el mapa es rectangular?
     if (map_data->check_rectangular == 1)
