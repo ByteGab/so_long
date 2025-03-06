@@ -1,9 +1,9 @@
 NAME = so_long.a
-SOURCES = $()
+SOURCES = so_long.c read_map.c loop_hook.c close_window.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c check_map.c  # Agrega aquí tus archivos fuente
 GNL_SOURCES = $(addprefix get_next_line/, get_next_line.c get_next_line_utils.c)
 
 OBJECTS = $(SOURCES:.c=.o)
-GNL_OBJECTS = $(SOURCES:.c=.o)                                                   
+GNL_OBJECTS = $(GNL_SOURCES:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -26,7 +26,7 @@ $(NAME): $(OBJECTS) $(GNL_OBJECTS)
 
 %.o: %.c
 	@echo "$(YELLOW)Compiling $<...$(RESET)"
-	gcc $(CFLAGS) -Imlx -Iincludes -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -Iincludes -c $< -o $@
 
 clean:
 	@echo "$(RED)Cleaning object files...$(RESET)"
