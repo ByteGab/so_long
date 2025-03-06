@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/06 03:18:44 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:10:37 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char *argv[])
 		vars.player_move = mlx_xpm_file_to_image(vars.mlx, character2, &img_width4,
 				&img_height4);
 		mlx_put_image_to_window(vars.mlx, vars.win, img2, 1, 1);
-		int x = 0;
+		//int x = 0;
 		mlx_put_image_to_window(vars.mlx, vars.win, vars.player, vars.pos_x, vars.pos_y);
 		// print manual walls
 		i = 0;
