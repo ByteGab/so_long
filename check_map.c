@@ -11,7 +11,9 @@ int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
 			printf("Error añade un solo mapa\n");
         return (0);
 	}
+	// function check file .ber
 	read_map(map, &vars);
+	// function check assets map
     // el mapa es rectangular?
 	map_data->check_rectangular = 0;
     if (map_data->check_rectangular == 1)

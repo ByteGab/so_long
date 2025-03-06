@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/22 18:11:10 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:52:00 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	loop_hook(int keycode, t_vars *vars)
         printf("Key W\n");
         mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
         vars->pos_y -= 64;
+        // function check assets map
+
         mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
     }
     else if (keycode == 115)
@@ -34,6 +36,7 @@ int	loop_hook(int keycode, t_vars *vars)
         printf("Key S\n");
         mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
         vars->pos_y += 64;
+        // function check assets map
         mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
     }
     else if (keycode == 97)
@@ -41,6 +44,7 @@ int	loop_hook(int keycode, t_vars *vars)
         printf("key A\n");
         mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
         vars->pos_x -= 64;
+        // function check assets map
         // mlx_put_image_to_window(vars->mlx, vars->win, vars->player_move, vars->pos_x, vars->pos_y);
         mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
     }
@@ -49,20 +53,9 @@ int	loop_hook(int keycode, t_vars *vars)
         printf("Key D\n");
         mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
         vars->pos_x += 64;
+    // function check assets map
+
         mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
-    }
-    // void *temp;
-    // if (vars->flag == 0)
-    // {
-    //     temp = vars->player;
-    //     vars->player = vars->player_move;
-    //     vars->flag = 1;
-    // }
-    // else if (vars->flag == 1)
-    // {
-    //         vars->player = temp;
-    //         vars->flag = 0;
-    // }
-    
+    }   
     return (0);
 }
