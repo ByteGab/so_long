@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/06 16:10:37 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/06 21:51:42 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char *argv[])
 {
 	t_vars vars;
 	t_map map_data;
+	t_data data;
 	// imgs
 	void *background_img;
 	void *wall;
@@ -36,9 +37,8 @@ int	main(int argc, char *argv[])
 	int z;
 
 	i = 60;
-	
 	// comprobate map
-	map_data.check = check_map(argc,&map_data,argv[1],&vars);
+	map_data.check = check_map(argc,&map_data,argv[1],&data);
 	// read_map
 	if (map_data.check == 1)
 	{
