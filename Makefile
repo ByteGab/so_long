@@ -1,5 +1,5 @@
 NAME = so_long
-SOURCES = so_long.c read_map.c loop_hook.c close_window.c check_map.c
+SOURCES = so_long.c read_map.c loop_hook.c close_window.c check_map.c draw_map.c
 GNL_SOURCES = $(addprefix get_next_line/, get_next_line.c get_next_line_utils.c)
 
 OBJECTS = $(SOURCES:.c=.o)
