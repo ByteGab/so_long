@@ -6,40 +6,80 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:31:42 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/13 16:46:18 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:32:51 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	draw_map(char *map, t_vars *vars)
+void place_textures(t_vars *vars)
 {
+    int img_width;
+    int img_height;
 	int i;
+	int j;
 
 	i = 0;
-	if (map[i] == '0')
+    vars->background = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
+    vars->walls = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
+	vars->player = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
+    //vars->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_height);
+    //vars->coins = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
+	while (i < vars->rows)
 	{
-		// draw background
+		j = 0;
+		while (j < vars->columns)
+		{
+			if (vars->map[i][j] == 'P')
+			{
+				 mlx_put_image_to_window(vars->mlx, vars->win, vars->player, j * 64, i * 64);
+				vars->pos_x = j * 64;
+                vars->pos_y = i * 64;
+			}
+            else if (vars->map[i][j] == '0')
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->background, j * 64, i * 64);
+            else if (vars->map[i][j] == '1')
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, j * 64, i * 64);
+            // else if (data->map[i][j] == 'C')
+            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->coins, j * 64, i * 64);
+            // else if (data->map[i][j] == 'E')
+            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->exit, j * 64, i * 64);
+			j++;
+		}
+		printf("%d\n",j);
+		i++;
 	}
-	else if (map[i] == '1')
-	{
-		// draw wall
-	}
-	else if (map[i] == 'P')
-	{
-		// if character is 1
-		// draw Character
-		// else more character is error
-	}
-	else if (map[i] == 'C')
-	{
-		// draw coins
-		// count to coins
-	}
-	else if (map[i] == 'E')
-	{
-		// if exit is 1
-		// draw Exit when recolect total Coins
-		// else more exits is error
-	}
+	printf("%d\n",i);
 }
+
+// void	draw_map(char *map, t_vars *vars)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	if (map[i] == '0')
+// 	{
+// 		// draw background
+// 	}
+// 	else if (map[i] == '1')
+// 	{
+// 		// draw wall
+// 	}
+// 	else if (map[i] == 'P')
+// 	{
+// 		// if character is 1
+// 		// draw Character
+// 		// else more character is error
+// 	}
+// 	else if (map[i] == 'C')
+// 	{
+// 		// draw coins
+// 		// count to coins
+// 	}
+// 	else if (map[i] == 'E')
+// 	{
+// 		// if exit is 1
+// 		// draw Exit when recolect total Coins
+// 		// else more exits is error
+// 	}
+// }
