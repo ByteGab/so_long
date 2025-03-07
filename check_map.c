@@ -1,8 +1,51 @@
 #include "so_long.h"
+void check_file(char *file)
+{
+	size_t  size;
+	char *type_file;
+	size_t i;
+	int j;
 
+
+	size = ft_strlen(file);
+	type_file = ".ber";
+	i = size;
+	j = 0;
+	// check length
+	if (size < 4)
+	{
+		printf("El mapa no es un archivo .ber");
+		exit(0);
+	}
+	// check .
+	while (i > 0)
+	{
+		if(file[i] == '.')
+			break;
+		i--;
+	}
+	// check correct size
+	if ((size - i) != 4)
+	{
+		printf("El mapa no es un archivo .ber");
+		exit(0);
+	}
+	// check correct type file
+	// existe el archivo del mapa?
+	while (file[i] != '\0' && type_file[j] != '\0')
+	{
+		if (file[i] != type_file[j])
+		{
+			printf("El mapa no es un archivo .ber");
+			exit(0);
+		}
+		i++;
+		j++;
+	}
+}
 int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
 {
-    // existe el archivo del mapa?
+    // envio un argv?
     if (maps != 2)
 	{
 		if (maps == 1)
@@ -10,9 +53,9 @@ int check_map(int maps,t_map *map_data,char *map,t_vars *vars)
 		else
 			printf("Error añade un solo mapa\n");
 		exit(0);
-        return (0);
 	}
 	// function check file .ber
+	check_file(map);
 	read_map(map, vars);
 	// function check assets map
     // el mapa es rectangular?
