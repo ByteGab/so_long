@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 00:19:07 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:13:39 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ typedef struct s_map
 	int 	check;
 }			t_map;
 
-void	read_map(char *argv, t_vars *vars);
+void		read_map(char *argv, t_vars *vars);
 int			loop_hook(int keycode, t_vars *vars);
-int			close_window(int keycode, void *param);
-void		my_mlx_pixel_put(t_vars *data, int x, int y, int color);
-int check_map(int maps,t_map *map_data,char *map,t_vars *vars);
+int 		close_window(t_vars *vars);
+int 		check_map(int maps,t_map *map_data,char *map,t_vars *vars);
 void        print_map(t_vars *vars);
 void        place_textures(t_vars *vars);
 
