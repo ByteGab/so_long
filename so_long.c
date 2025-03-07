@@ -6,50 +6,11 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 01:10:48 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:31:13 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-void place_textures(t_vars *vars)
-{
-    int img_width;
-    int img_height;
-	int i;
-	int j;
-
-	i = 0;
-    vars->background = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
-    vars->walls = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
-	vars->player = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
-    //vars->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_height);
-    //vars->coins = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
-	while (i < vars->rows)
-	{
-		j = 0;
-		while (j < vars->columns)
-		{
-			if (vars->map[i][j] == 'P')
-			{
-				 mlx_put_image_to_window(vars->mlx, vars->win, vars->player, j * 64, i * 64);
-				vars->pos_x = j * 64;
-                vars->pos_y = i * 64;
-			}
-            else if (vars->map[i][j] == '0')
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->background, j * 64, i * 64);
-            else if (vars->map[i][j] == '1')
-                mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, j * 64, i * 64);
-            // else if (data->map[i][j] == 'C')
-            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->coins, j * 64, i * 64);
-            // else if (data->map[i][j] == 'E')
-            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->exit, j * 64, i * 64);
-			j++;
-		}
-		printf("%d\n",j);
-		i++;
-	}
-	printf("%d\n",i);
-}
 int	main(int argc, char *argv[])
 {
 	t_vars vars;

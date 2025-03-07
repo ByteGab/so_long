@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 18:41:44 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 00:13:58 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:29:32 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	read_map(char *argv, t_vars *vars)
     //     perror("Error reading file");
     //     exit(EXIT_FAILURE);
     // }
-	columns = ft_strlen(line);
+	columns = ft_strlen(line) - 1;
 	file_map = (char **)malloc(sizeof(char *) * 100);
 	// if (!file_map)
     // {
