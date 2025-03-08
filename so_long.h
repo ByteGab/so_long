@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 01:13:39 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:01:20 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_vars
 	char    **map;
     int     rows;
     int     columns;
+	int		count_coins;
 }			t_vars;
 
 typedef struct s_map
