@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:31:42 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 13:32:51 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:45:48 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void place_textures(t_vars *vars)
 	int j;
 
 	i = 0;
-    vars->background = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
-    vars->walls = mlx_xpm_file_to_image(vars->mlx, "assets/4b_64x64.xpm", &img_width, &img_height);
-	vars->player = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
-    //vars->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_height);
-    //vars->coins = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_with_background.xpm", &img_width, &img_height);
+    vars->background = mlx_xpm_file_to_image(vars->mlx, "assets/Grass.xpm", &img_width, &img_height);
+    vars->walls = mlx_xpm_file_to_image(vars->mlx, "assets/water.xpm", &img_width, &img_height);
+	vars->player = mlx_xpm_file_to_image(vars->mlx, "assets/Dino.xpm", &img_width, &img_height);
+	vars->player_move = mlx_xpm_file_to_image(vars->mlx, "assets/Dino_move.xpm", &img_width, &img_height);
+    vars->exit = mlx_xpm_file_to_image(vars->mlx, "assets/House.xpm", &img_width, &img_height);
+    vars->coins = mlx_xpm_file_to_image(vars->mlx, "assets/Egg.xpm", &img_width, &img_height);
 	while (i < vars->rows)
 	{
 		j = 0;
@@ -40,10 +41,10 @@ void place_textures(t_vars *vars)
                 mlx_put_image_to_window(vars->mlx, vars->win, vars->background, j * 64, i * 64);
             else if (vars->map[i][j] == '1')
                 mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, j * 64, i * 64);
-            // else if (data->map[i][j] == 'C')
-            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->coins, j * 64, i * 64);
-            // else if (data->map[i][j] == 'E')
-            //     mlx_put_image_to_window(vars->mlx, vars->win, vars->exit, j * 64, i * 64);
+            else if (vars->map[i][j] == 'C')
+                mlx_put_image_to_window(vars->mlx, vars->win, vars->coins, j * 64, i * 64);
+            else if (vars->map[i][j] == 'E')
+            	mlx_put_image_to_window(vars->mlx, vars->win, vars->exit, j * 64, i * 64);
 			j++;
 		}
 		printf("%d\n",j);
