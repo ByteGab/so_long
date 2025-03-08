@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 15:10:51 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:50:00 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int  loop_hook(int keycode, t_vars *vars)
     else if (keycode == 119)
     {
         printf("Key W\n");
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->background, vars->pos_x, vars->pos_y);
         vars->pos_y -= 64;
         // function check assets map
 
@@ -32,7 +32,7 @@ int  loop_hook(int keycode, t_vars *vars)
     else if (keycode == 115)
     {
         printf("Key S\n");
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->background, vars->pos_x, vars->pos_y);
         vars->pos_y += 64;
         // function check assets map
         mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
@@ -40,20 +40,25 @@ int  loop_hook(int keycode, t_vars *vars)
     else if (keycode == 97)
     {
         printf("key A\n");
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->background, vars->pos_x, vars->pos_y);
         vars->pos_x -= 64;
         // function check assets map
-        // mlx_put_image_to_window(vars->mlx, vars->win, vars->player_move, vars->pos_x, vars->pos_y);
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);   
+        
     }
     else if (keycode == 100)
     {
-        printf("Key D\n");
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->walls, vars->pos_x, vars->pos_y);
-        vars->pos_x += 64;
-    // function check assets map
+        static int toggle = 0;
 
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
+        printf("Key D\n");
+        mlx_put_image_to_window(vars->mlx, vars->win, vars->background, vars->pos_x, vars->pos_y);
+        vars->pos_x += 64;
+
+        if (toggle % 2 == 0)
+            mlx_put_image_to_window(vars->mlx, vars->win, vars->player_move, vars->pos_x, vars->pos_y);
+        else
+            mlx_put_image_to_window(vars->mlx, vars->win, vars->player, vars->pos_x, vars->pos_y);
+        toggle++;
     }   
     return (0);
 }
