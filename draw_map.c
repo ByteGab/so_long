@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:31:42 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/08 22:17:18 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 03:41:59 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,29 @@ void	place_textures(t_vars *vars)
 	vars->coins = mlx_xpm_file_to_image(vars->mlx, "assets/Egg.xpm", &img_width,
 			&img_height);
 	vars->count_coins = 0;
+	vars->count_moves = 0;
+	vars->count_exit = 0;
+	vars->count_player = 0;
 	while (i < vars->rows)
 	{
 		j = 0;
 		while (j < vars->columns)
 		{
-			if (vars->map[i][j] == 'P')
+			if (vars->map[i][j] != 'P' && vars->map[i][j] != '0'
+				&& vars->map[i][j] != '1' && vars->map[i][j] != 'C'
+				&& vars->map[i][j] != 'E')
+			{
+				printf("El mapa no es valido");
+				mlx_destroy_window(vars->mlx, vars->win);
+				exit(0);
+			}
+			else if (vars->map[i][j] == 'P')
 			{
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->player, j
 					* 64, i * 64);
 				vars->pos_x = j * 64;
 				vars->pos_y = i * 64;
+				vars->count_player++;
 			}
 			else if (vars->map[i][j] == '0')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->background,
@@ -55,47 +67,37 @@ void	place_textures(t_vars *vars)
 			{
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->coins, j
 					* 64, i * 64);
-				vars->count_coins++;	
+				vars->count_coins++;
 			}
 			else if (vars->map[i][j] == 'E')
+			{
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->exit, j
 					* 64, i * 64);
+				vars->count_exit++;
+			}
 			j++;
 		}
-		printf("%d\n", j);
 		i++;
 	}
-	printf("%d\n", i);
+	// not coins
+	if (vars->count_coins == 0)
+	{
+		printf("El mapa no es valido");
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
+	// error exit
+	if (vars->count_exit == 0 || vars->count_exit > 1)
+	{
+		printf("El mapa no es valido");
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
+	// error player
+	if (vars->count_player == 0 || vars->count_player > 1)
+	{
+		printf("El mapa no es valido");
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
 }
-
-// void	draw_map(char *map, t_vars *vars)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	if (map[i] == '0')
-// 	{
-// 		// draw background
-// 	}
-// 	else if (map[i] == '1')
-// 	{
-// 		// draw wall
-// 	}
-// 	else if (map[i] == 'P')
-// 	{
-// 		// if character is 1
-// 		// draw Character
-// 		// else more character is error
-// 	}
-// 	else if (map[i] == 'C')
-// 	{
-// 		// draw coins
-// 		// count to coins
-// 	}
-// 	else if (map[i] == 'E')
-// 	{
-// 		// if exit is 1
-// 		// draw Exit when recolect total Coins
-// 		// else more exits is error
-// 	}
-// }
