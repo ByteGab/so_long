@@ -6,38 +6,17 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 18:41:44 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/07 13:29:32 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 02:20:47 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <string.h> // quitar
 
-// char **reco_map(t_data *data, char *argv)
-// {
-// 	t_map check_map;
-// 	char **map = malloc(data->y * sizeof(char *));
-
-// 	int i;
-// 	i = 0;
-// 	while (i < data->y)
-// 	{
-// 		map[i] = malloc (data->x[i] * sizeof (char));
-// 		i++;
-// 	}
-
-// 	i  = 0;
-// 	// comparar primera columna con los demas
-// 	// while (map[i])
-// 	// {
-// 	// 	if (ft_strlen(map[i] != data->x[i])) // si solo hay tres columnas o no hay nada
-// 	// 	{
-// 	// 		check_map.check_rectangular == 1;
-// 	// 		exit(0);
-// 	// 	}
-// 	// }
-	
-// }
+void	error_map(void)
+{
+	perror("Error opening file");
+	exit(EXIT_FAILURE);
+}
 
 void	read_map(char *argv, t_vars *vars)
 {
@@ -45,31 +24,21 @@ void	read_map(char *argv, t_vars *vars)
 	char *line;
 	int columns;
 	int rows = 0;
-	char ** file_map;
+	char **file_map;
 
 	fd = open(argv, O_RDONLY);
-	// if (fd < 0)
-	// {
-	// 	// perror("Error opening file");
-    //     // exit(EXIT_FAILURE);
-	// }
+	if (fd < 0)
+		error_map();
 	line = get_next_line(fd);
-	// if (!line)
-    // {
-    //     perror("Error reading file");
-    //     exit(EXIT_FAILURE);
-    // }
+	if (!line)
+		error_map();
 	columns = ft_strlen(line) - 1;
 	file_map = (char **)malloc(sizeof(char *) * 100);
-	// if (!file_map)
-    // {
-    //     perror("Error allocating memory");
-    //     exit(EXIT_FAILURE);
-    // }
-	
+	if (!file_map)
+		error_map();
 	while (line != NULL)
 	{
-		file_map[rows] = strdup(line); // change strdup
+		file_map[rows] = ft_strdup(line);
 		free(line);
 		rows++;
 		line = get_next_line(fd);
@@ -79,15 +48,5 @@ void	read_map(char *argv, t_vars *vars)
 	vars->map = file_map;
 	vars->rows = rows;
 	vars->columns = columns;
-	printf("\n");
-	// printf("%d\n",columns);
 	close(fd);
-}
-
-void    print_map(t_vars *vars)
-{
-    for (int i = 0; i < vars->rows; i++)
-    {
-        printf("%s", vars->map[i]);
-    }
 }
