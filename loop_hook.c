@@ -6,18 +6,20 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:14 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 03:15:53 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:13:11 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+
 
 int	loop_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 65307)
 	{
 		printf("Close Window\n");
-		mlx_destroy_window(vars->mlx, vars->win);
+		clean_up(vars);
 		exit(0);
 	}
 	else if (keycode == 119 || keycode == 65362)
@@ -31,7 +33,7 @@ int	loop_hook(int keycode, t_vars *vars)
 			if (vars->map[(vars->pos_y / 64) - 1][vars->pos_x / 64] == 'E'
 				&& vars->count_coins == 0)
 			{
-				mlx_destroy_window(vars->mlx, vars->win);
+				clean_up(vars);
 				exit(0);
 			}
 			else if (vars->map[(vars->pos_y / 64) - 1][vars->pos_x / 64] != 'E')
@@ -62,7 +64,7 @@ int	loop_hook(int keycode, t_vars *vars)
 			if (vars->map[(vars->pos_y / 64) + 1][vars->pos_x / 64] == 'E'
 				&& vars->count_coins == 0)
 			{
-				mlx_destroy_window(vars->mlx, vars->win);
+				clean_up(vars);
 				exit(0);
 			}
 			else if (vars->map[(vars->pos_y / 64) + 1][vars->pos_x / 64] != 'E')
@@ -93,7 +95,7 @@ int	loop_hook(int keycode, t_vars *vars)
 			if (vars->map[vars->pos_y / 64][(vars->pos_x / 64) - 1] == 'E'
 				&& vars->count_coins == 0)
 			{
-				mlx_destroy_window(vars->mlx, vars->win);
+				clean_up(vars);
 				exit(0);
 			}
 			else if (vars->map[vars->pos_y / 64][(vars->pos_x / 64) - 1] != 'E')
@@ -125,7 +127,7 @@ int	loop_hook(int keycode, t_vars *vars)
 			if (vars->map[vars->pos_y / 64][(vars->pos_x / 64) + 1] == 'E'
 				&& vars->count_coins == 0)
 			{
-				mlx_destroy_window(vars->mlx, vars->win);
+				clean_up(vars);
 				exit(0);
 			}
 			else if (vars->map[vars->pos_y / 64][(vars->pos_x / 64) + 1] != 'E')

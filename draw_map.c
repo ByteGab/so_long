@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:31:42 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 03:41:59 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:04:41 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	place_textures(t_vars *vars)
 			{
 				printf("El mapa no es valido");
 				mlx_destroy_window(vars->mlx, vars->win);
+				clean_up(vars);
 				exit(0);
 			}
 			else if (vars->map[i][j] == 'P')
@@ -84,6 +85,7 @@ void	place_textures(t_vars *vars)
 	{
 		printf("El mapa no es valido");
 		mlx_destroy_window(vars->mlx, vars->win);
+		clean_up(vars);
 		exit(0);
 	}
 	// error exit
@@ -91,6 +93,7 @@ void	place_textures(t_vars *vars)
 	{
 		printf("El mapa no es valido");
 		mlx_destroy_window(vars->mlx, vars->win);
+		clean_up(vars);
 		exit(0);
 	}
 	// error player
@@ -98,6 +101,7 @@ void	place_textures(t_vars *vars)
 	{
 		printf("El mapa no es valido");
 		mlx_destroy_window(vars->mlx, vars->win);
+		clean_up(vars);
 		exit(0);
 	}
 }

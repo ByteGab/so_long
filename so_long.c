@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:03 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 02:21:20 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:16:04 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char *argv[])
 		place_textures(&vars);
 		mlx_key_hook(vars.win, loop_hook, &vars);
 		mlx_hook(vars.win, 17, 0, close_window, &vars);
-		mlx_loop(vars.mlx);
 		mlx_loop(vars.mlx);
 	}
 	return (0);

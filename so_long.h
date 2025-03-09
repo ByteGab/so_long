@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 03:35:46 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 04:39:45 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int			loop_hook(int keycode, t_vars *vars);
 int			close_window(t_vars *vars);
 int			check_map(int maps, t_map *map_data, char *map, t_vars *vars);
 void		place_textures(t_vars *vars);
+void		clean_up(t_vars *vars);
 
 #endif
