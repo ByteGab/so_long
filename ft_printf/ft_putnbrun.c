@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   ft_putnbrun.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:10:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 16:57:58 by gafreire         ###   ########.fr       */
+/*   Created: 2024/11/09 19:33:34 by gafreire          #+#    #+#             */
+/*   Updated: 2024/11/10 16:56:12 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	close_window(t_vars *vars)
+int	ft_putnbrun(unsigned int n)
 {
-	printf("Close Window\n");
-	clean_up_all(vars);
-	exit(EXIT_FAILURE);
-	return (0);
+	unsigned int	size_format;
+
+	size_format = 0;
+	if (n > 9)
+	{
+		size_format += ft_putnbrint(n / 10);
+		size_format += ft_putnbrint(n % 10);
+	}
+	else
+		size_format += ft_putcharint(n + '0');
+	return (size_format);
 }

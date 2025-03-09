@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:08 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/01 18:41:35 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:52:55 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ char	*get_next_line(int fd)
 // {
 // 	int	fd;
 // 	char	*line;
-	
 // 	fd = open("primer_mapa.ber", O_RDONLY);
 // 	line = get_next_line(fd);
 // 	while (line != NULL)

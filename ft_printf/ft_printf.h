@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:10:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 16:57:58 by gafreire         ###   ########.fr       */
+/*   Created: 2024/11/04 18:14:17 by gafreire          #+#    #+#             */
+/*   Updated: 2024/11/09 19:17:28 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	close_window(t_vars *vars)
-{
-	printf("Close Window\n");
-	clean_up_all(vars);
-	exit(EXIT_FAILURE);
-	return (0);
-}
+# include <unistd.h>
+
+int	ft_printf(char const *format, ...);
+int	ft_putcharint(int c);
+int	ft_putstrint(char *s);
+int	ft_voidhex(void *n);
+int	ft_putnbrint(int n);
+int	ft_putnbrun(unsigned int n);
+int	ft_upperhex(unsigned int n);
+int	ft_lowerhex(unsigned int n);
+
+#endif

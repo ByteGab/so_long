@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   ft_putcharint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gafreire <gafreire@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:10:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 16:57:58 by gafreire         ###   ########.fr       */
+/*   Created: 2024-11-09 19:41:13 by gafreire          #+#    #+#             */
+/*   Updated: 2024-11-09 19:41:13 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	close_window(t_vars *vars)
+int	ft_putcharint(int c)
 {
-	printf("Close Window\n");
-	clean_up_all(vars);
-	exit(EXIT_FAILURE);
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:52:11 by gafreire          #+#    #+#             */
-/*   Updated: 2025/02/11 10:44:26 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 20:30:58 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (tab);
 }
 
-size_t	ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -68,12 +68,12 @@ char	*ft_strchr(char *s, int c)
 char	*ft_strdup(char *s1)
 {
 	char	*mem;
-	size_t	size;
+	int		size;
 	int		i;
 
+	i = 0;
 	size = ft_strlen(s1) + 1;
 	mem = (char *)malloc(size);
-	i = 0;
 	if (!mem)
 		return (NULL);
 	while (s1[i])

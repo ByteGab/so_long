@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   ft_upperhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:10:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 16:57:58 by gafreire         ###   ########.fr       */
+/*   Created: 2024/11/09 19:41:24 by gafreire          #+#    #+#             */
+/*   Updated: 2024/11/10 17:29:11 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	close_window(t_vars *vars)
+int	ft_upperhex(unsigned int n)
 {
-	printf("Close Window\n");
-	clean_up_all(vars);
-	exit(EXIT_FAILURE);
-	return (0);
+	int		size_format;
+	char	*basehex;
+
+	size_format = 0;
+	basehex = "0123456789ABCDEF";
+	if (n >= 16)
+	{
+		size_format += ft_upperhex(n / 16);
+		size_format += ft_upperhex(n % 16);
+	}
+	else
+		size_format += ft_putcharint(basehex[n % 16]);
+	return (size_format);
 }

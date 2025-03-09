@@ -6,7 +6,7 @@
 /*   By: gafreire <gafreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:43:56 by gafreire          #+#    #+#             */
-/*   Updated: 2025/03/09 04:39:45 by gafreire         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:26:40 by gafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 # include "minilibx-linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -40,24 +41,20 @@ typedef struct s_vars
 	int		count_moves;
 	int		count_exit;
 	int		count_player;
+	int		moves;
 }			t_vars;
-
-typedef struct s_map
-{
-	int		lines;
-	int		check_rectangular;
-	int		check_walls;
-	int		check_exit;
-	int		check_player;
-	int		check_coins;
-	int		check;
-}			t_map;
 
 void		read_map(char *argv, t_vars *vars);
 int			loop_hook(int keycode, t_vars *vars);
 int			close_window(t_vars *vars);
-int			check_map(int maps, t_map *map_data, char *map, t_vars *vars);
+void		check_map(int maps, char *map, t_vars *vars);
 void		place_textures(t_vars *vars);
-void		clean_up(t_vars *vars);
+void		clean_up_all(t_vars *vars);
+void		clean_up_map(t_vars *vars);
+void		clean_up_imgs(t_vars *vars);
+void		pre_save_imgs(t_vars *vars);
+void		error_item(t_vars *vars);
+void		error_moves(t_vars *vars);
+void		print_moves(t_vars *vars);
 
 #endif
