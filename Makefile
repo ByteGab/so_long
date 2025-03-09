@@ -25,26 +25,26 @@ all: banner $(NAME)
 
 $(NAME): $(OBJECTS) $(GNL_OBJECTS) $(MLX)
 	@echo "$(CYAN)Linking $(NAME)...$(RESET)"
-	$(CC) $(CFLAGS) $^ $(MLX_FLAGS) -o $(NAME) > /dev/null 2>&1
+	@$(CC) $(CFLAGS) $^ $(MLX_FLAGS) -o $(NAME) > /dev/null 2>&1
 	@echo "$(GREEN)✔ $(NAME) compiled successfully!$(RESET)"
 
 $(MLX):
 	@echo "$(CYAN)Building MiniLibX...$(RESET)"
-	make -C $(MLX_DIR) >/dev/null 2>&1
+	@make -C $(MLX_DIR) >/dev/null 2>&1
 
 %.o: %.c 
 	@echo "$(YELLOW)Compiling $<...$(RESET)"
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -Iincludes -c $< -o $@ 
+	@$(CC) $(CFLAGS) -I$(MLX_DIR) -Iincludes -c $< -o $@ > /dev/null 2>&1
 
 clean:
 	@echo "$(RED)Cleaning object files...$(RESET)"
-	$(RM) $(OBJECTS) $(GNL_OBJECTS) > /dev/null 2>&1
+	@$(RM) $(OBJECTS) $(GNL_OBJECTS) > /dev/null 2>&1
 
 fclean: clean
 	@echo "$(RED)Removing $(NAME)...$(RESET)"
-	$(RM) $(NAME) >/dev/null 2>&1
+	@$(RM) $(NAME) >/dev/null 2>&1
 	@echo "$(RED)Cleaning MiniLibX...$(RESET)"
-	make -C $(MLX_DIR) clean > /dev/null 2>&1
+	@make -C $(MLX_DIR) clean > /dev/null 2>&1
 
 re: fclean all
 
